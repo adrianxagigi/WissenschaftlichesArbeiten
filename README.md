@@ -1,0 +1,2 @@
+# WissenschaftlichesArbeiten
+Teilleistung Gruppenarbeit
