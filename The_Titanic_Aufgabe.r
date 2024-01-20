@@ -49,4 +49,4 @@ titanic$Age <- ifelse(is.na(titanic$Age),
                       ave(titanic$Age, titanic$Title, FUN = function(x) ifelse(is.na(x), mean(x, na.rm = TRUE), x)), 
                       titanic$Age)
 
-
+titanic$Age
