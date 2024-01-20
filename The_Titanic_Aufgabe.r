@@ -3,9 +3,12 @@ titanic <- read.csv("titanic.csv")
 
 # Installation des stringr Packages
 install.packages("stringr")
+install.packages("dplyr")
 
 # auflade das stringr Package
 library(stringr)
+
+library(dplyr)
 
 # Mein List von Namen
 names <- titanic$Name
@@ -67,5 +70,7 @@ titanic <- cbind(titanic, Bord , Deck)
 
 #Entfernt Variablen „PassengerID“, "Name", "Cabin"
 neue_titanic <- select(titanic, -PassengerId, -Name, -Ticket, -Cabin)
+
+save(neue_titanic, file = "neue_titanic.RData")
 
 
