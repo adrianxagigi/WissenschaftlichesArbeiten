@@ -1,9 +1,10 @@
 #Funktionen-R-Skript 1
 
+load("neue_titanic.RData")
 # ii. Funktion fuer kategoriale Variablen
 calculate_descriptive_categorical <- function(neue_titanic, cat_variable) {
   
-  # Ueberprüfen, ob die Variable im Datenrahmen ist
+  # UeberprÃ¼fen, ob die Variable im Datenrahmen ist
   if (!cat_variable %in% names(neue_titanic)) {
     stop("Die angegebene kategoriale Variable ist im Datenrahmen nicht vorhanden.")
   }
