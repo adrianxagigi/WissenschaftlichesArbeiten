@@ -1,15 +1,15 @@
 
-
-
-# Install and load required libraries
+install.packages("magrittr")
 install.packages("tidyverse")
+
 library(tidyverse)
+library(ggplot2)
 
 # Define the function
 plot_age_survival <- function(data) {
   data %>%
     ggplot(aes(x = Age, fill = Survived)) +
-    geom_histogram() +
+    geom_histogram(binwidth = 15) +
     facet_wrap(~Sex + Pclass) +
     theme_test() +
     theme(
@@ -22,6 +22,5 @@ plot_age_survival <- function(data) {
     labs(title = "Survival rates Age, Sex and Passenger class")
 }
 
-# Example usage
-# Assuming 'titanic_data' is your dataset
+
 plot_age_survival(neue_titanic)
