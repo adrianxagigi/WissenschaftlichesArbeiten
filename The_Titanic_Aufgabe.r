@@ -4,10 +4,12 @@ titanic <- read.csv("titanic.csv")
 # Installation des stringr Packages
 install.packages("stringr")
 install.packages("dplyr")
+install.packages("tidyverse")
 
-# auflade das stringr Package
+
+library(tidyverse)
 library(stringr)
-
+library(forcats)
 library(dplyr)
 
 # Mein List von Namen
@@ -25,20 +27,25 @@ unique_titles <- unique(titles)
 # Zeigen Sie einzigartige Anrede
 print(unique_titles)
 
-# Ordinale Variables als Factor 
+# Ordinale Variablen als Factors
 
 #Survived Yes = 1, No = 0
-Survived = factor(titanic$Survived)
+
+titanic$Survived <- as.factor(titanic$Survived)
+titanic$Survived
 
 #Sex: Geschlecht (male/female)
-Sex = factor(titanic$Sex)
+titanic$Sex = as.factor(titanic$Sex)
 
 #Embarked: Zustiegshafen (C = Cherbourg; Q = Queenstown; S = Southampton)
-Embarked = factor (titanic$Embarked)
+titanic$Embarked = as.factor(titanic$Embarked)
 
 # Umkehrung der Faktorslevel
 # Klasse des Reisenden (ordinal mit 1 > 2 > 3)
-Pclass= factor(titanic$Pclass, level = rev(c(1,2,3)) , ordered = TRUE)
+
+titanic$Pclass <- factor(titanic$Pclass, ordered = TRUE)  # Create ordered factor
+titanic$Pclass <- factor(titanic$Pclass, levels = rev(levels(titanic$Pclass)))  # Reverse levels
+
 
 
 # Titel zum Datenframe hinzufügen
