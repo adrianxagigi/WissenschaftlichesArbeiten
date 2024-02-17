@@ -3,9 +3,12 @@ titanic <- read.csv("titanic.csv")
 
 # Installation des stringr Packages
 install.packages("stringr")
+install.packages("dplyr")
 
 # auflade das stringr Package
 library(stringr)
+
+library(dplyr)
 
 # Mein List von Namen
 names <- titanic$Name
@@ -49,4 +52,25 @@ titanic$Age <- ifelse(is.na(titanic$Age),
                       ave(titanic$Age, titanic$Title, FUN = function(x) ifelse(is.na(x), mean(x, na.rm = TRUE), x)), 
                       titanic$Age)
 
-titanic$Age
+#Extrahiert aus der Variable „Cabin“ 
+kabine_nummer <- as.numeric(str_extract(titanic$Cabin, "\\d+"))
+
+# Neue Variable "Bord"
+Bord <- ifelse(kabine_nummer %% 2 == 0, "Backbord", "Steuerbord")
+
+# Neue Variable "Deck"
+Deck <- str_extract(titanic$Cabin, "^\\D+")
+
+# Ersetzt fehlende Werte mit NA
+Deck[is.na(Deck)] <- NA
+Bord[is.na(kabine_nummer)] <- NA
+
+# Fügt neue Variablen zum Datensatz
+titanic <- cbind(titanic, Bord , Deck)
+
+#Entfernt Variablen „PassengerID“, "Name", "Cabin"
+neue_titanic <- select(titanic, -PassengerId, -Name, -Ticket, -Cabin)
+
+save(neue_titanic, file = "neue_titanic.RData")
+
+
