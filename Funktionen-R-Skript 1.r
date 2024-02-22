@@ -7,20 +7,30 @@ library(ggplot2)
 
 #i)
 # Funktion für deskriptive Statistiken
-calculate_descriptive_statistics <- function(data) {
-  # Mittelwert
-  mean_value <- mean(data)
+# Laden Sie zuerst den Datensatz
+load("neue_titanic.Rdata")
+
+# Funktion zur Berechnung deskriptiver Statistiken
+deskriptive_statistiken <- function(df) {
+  numerische_variablen <- sapply(df, is.numeric)
+  df_numerisch <- df[, numerische_variablen]
   
-  # Median
-  median_value <- median(data)
-
-  # Standardabweichung
-  sd_value <- sd(data)
-
+  statistiken <- data.frame(
+    'Minimum' = apply(df_numerisch, 2, min, na.rm = TRUE),
+    '1. Quartil' = apply(df_numerisch, 2, quantile, probs = 0.25, na.rm = TRUE),
+    'Median' = apply(df_numerisch, 2, median, na.rm = TRUE),
+    'Mittelwert' = apply(df_numerisch, 2, mean, na.rm = TRUE),
+    '3. Quartil' = apply(df_numerisch, 2, quantile, probs = 0.75, na.rm = TRUE),
+    'Maximum' = apply(df_numerisch, 2, max, na.rm = TRUE)
+  )
+  
+  return(statistiken)
 }
 
+# Anwendung der Funktion auf den Datensatz
+statistiken <- deskriptive_statistiken(neue_titanic)
+print(statistiken)
 
-calculate_descriptive_statistics(neue_titanic$age)
 
 # ii. Funktion fuer kategoriale Variablen
 calculate_descriptive_categorical <- function(neue_titanic, cat_variable) {
