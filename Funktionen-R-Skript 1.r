@@ -139,3 +139,14 @@ plot_age_survival <- function(data) {
 
 
 plot_age_survival(neue_titanic)
+
+
+#iv) Weitere Funktionen 
+
+# Korrelationsmatrix für numerische Variablen
+korrelation <- cor(neue_titanic[, sapply(neue_titanic, is.numeric)], use = "complete.obs")
+print(korrelation)
+
+
+# Boxplot für die Variable 'Alter'
+boxplot(neue_titanic$Age, main = "Boxplot des Alters", ylab = "Age")
