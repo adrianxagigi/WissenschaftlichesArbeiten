@@ -6,9 +6,6 @@ library(tidyverse)
 library(ggplot2)
 
 #i)
-# Funktion für deskriptive Statistiken
-# Laden Sie zuerst den Datensatz
-load("neue_titanic.Rdata")
 
 # Funktion zur Berechnung deskriptiver Statistiken
 deskriptive_statistiken <- function(df) {
