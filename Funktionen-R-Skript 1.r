@@ -13,10 +13,14 @@ calculate_descriptive_statistics <- function(data) {
   
   # Median
   median_value <- median(data)
-  
+
   # Standardabweichung
   sd_value <- sd(data)
+
 }
+
+
+calculate_descriptive_statistics(neue_titanic$age)
 
 # ii. Funktion fuer kategoriale Variablen
 calculate_descriptive_categorical <- function(neue_titanic, cat_variable) {
