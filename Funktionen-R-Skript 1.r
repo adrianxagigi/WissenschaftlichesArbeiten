@@ -7,7 +7,7 @@ library(ggplot2)
 
 #i)
 
-# Funktion zur Berechnung deskriptiver Statistiken
+# Funktion zur Berechnung der 5-Werte Zusammenfassung metrischer Variablen
 deskriptive_statistiken <- function(df) {
   numerische_variablen <- sapply(df, is.numeric)
   df_numerisch <- df[, numerische_variablen]
@@ -29,14 +29,14 @@ statistiken <- deskriptive_statistiken(neue_titanic)
 print(statistiken)
 
 
-# ii. Funktion fuer kategoriale Variablen
+# ii. Funktion für kategoriale Variablen, die Absolute und Relative Häufigkeiten, und Modus zurückgibt.
 calculate_descriptive_categorical <- function(neue_titanic, cat_variable) {
   
   # Ueberprüfen, ob die Variable im Datenrahmen ist
   if (!cat_variable %in% names(neue_titanic)) {
     stop("Die angegebene kategoriale Variable ist im Datenrahmen nicht vorhanden.")
   }
- 
+  
   # Extrahiere die Spalte mit der kategorialen Variable
   variable_values <- neue_titanic[[cat_variable]]
   
@@ -67,7 +67,7 @@ calculate_descriptive_categorical(neue_titanic, cat_variable = "Title")
 
 #iii)
 
-# Funktion für bivariate Statistiken zwischen zwei kategorialen Variablen
+# Die Funktion berechnet die Beziehung zwischen zwei Variablen durch Berechnung einer Chi-squared Test
 calculate_bivariate_categorical <- function(data_frame, var1, var2) {
   
   # Überprüfen, ob die Variablen im Datenrahmen vorhanden sind
@@ -94,7 +94,6 @@ calculate_bivariate_categorical <- function(data_frame, var1, var2) {
 # Beispielaufruf der Funktion:
 # calculate_bivariate_categorical(neue_titanic, "Variable1", "Variable2")
 
-#iv)
 
 #iv. T-test fuer die Variablen Survived und Pclass
 
@@ -120,7 +119,7 @@ compare_means_ttest("Pclass", "Survived", neue_titanic)
 
 #v)
 
-# Define the function
+# Eine Grafik, die der Alter, Geschlecht, Passagierklasse und Überlebensrate beschreibt.
 plot_age_survival <- function(data) {
   data %>%
     ggplot(aes(x = Age, fill = Survived)) +
@@ -137,7 +136,7 @@ plot_age_survival <- function(data) {
     labs(title = "Survival rates Age, Sex and Passenger class")
 }
 
-
+#Example
 plot_age_survival(neue_titanic)
 
 
