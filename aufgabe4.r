@@ -62,3 +62,15 @@ ggplot(data_for_plot, aes(x = Age, y = Percentage, fill = as.factor(Survived))) 
        y = "Prozentsatz") +
   scale_fill_manual(values = c("red", "skyblue"), name = "Survived") +
   theme_minimal()
+
+
+# Visualisierung des Überlebensrate in Abhängigkeit vom Alter und Ticket
+plot(neue_titanic$Age, neue_titanic$Survived, main = 
+       "Überlebensrate in Abhängigkeit vom Alter", xlab = "Alter", 
+     ylab = "Überlebt (1) oder nicht (0)", 
+     col = ifelse(neue_titanic$Survived == 1, "blue", "red"))
+plot(neue_titanic$Fare, neue_titanic$Survived, 
+     main = "Überlebensrate in Abhängigkeit vom Ticketpreis", 
+     xlab = "Ticketpreis", ylab = "Überlebt (1) oder nicht (0)",
+     col = ifelse(neue_titanic$Survived == 1, "blue", "red"))
+
