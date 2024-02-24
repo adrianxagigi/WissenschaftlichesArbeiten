@@ -1,7 +1,9 @@
 #load("neue_titanic.RData")
 
 source("Funktionen_R_Skript_1.R")
-
+library(ggplot2)
+library(magrittr)
+library(dplyr)
 # 1. Ueberlebensrate nach Klasse
 
 # Deskriptive Statistiken für Überlebensrate nach Klasse
