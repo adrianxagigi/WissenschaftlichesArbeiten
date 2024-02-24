@@ -1,6 +1,6 @@
 #load("neue_titanic.RData")
 
-source("Funktionen-R-Skript 1.R")
+source("Funktionen_R_Skript_1.R")
 
 # 1. Ueberlebensrate nach Klasse
 
@@ -23,9 +23,8 @@ print(chi_sq_result$Chi_Quadrat_Test)
 
 # Deskriptive Statistiken fuer Ticketpreise nach Klasse
 
-fare_stats <- deskriptive_statistiken(data.frame(neue_titanic$Fare))
+fare_stats <- deskriptive_statistiken(neue_titanic)
 print(fare_stats)
-
 
 # Visualisierung der Ticketpreise nach Klasse mit Boxplot
 ggplot(neue_titanic, aes(x = as.factor(Pclass), y = Fare)) +
