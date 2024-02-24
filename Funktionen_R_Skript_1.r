@@ -101,9 +101,9 @@ calculate_bivariate_categorical <- function(data_frame, var1, var2) {
 
 compare_means_ttest <- function(metric_variable, dich_variable, data) {
   #Subset the two groups
-  survived <- data[data[[dich_variable]] == 0, metric_variable]
-  deceased <- data[data[[dich_variable]] == 1, metric_variable]
-  
+  survived <- data[data[[dich_variable]] == 1, metric_variable]
+  deceased <- data[data[[dich_variable]] == 0, metric_variable]
+   
   #t-test
   t_test_result <- t.test(survived, deceased)
   
