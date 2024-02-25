@@ -1,4 +1,4 @@
-# WissenschaftlichesArbeiten  Teilleistung Gruppenarbeit
+# Wissenschaftliches Arbeiten Teilleistung Gruppenarbeit
 # Das Titanic-Projekt
 
 Das Ziel dieses Projekts ist es, einen Datensatz über die Passagiere der Titanic zu analysieren, um Beziehungen zwischen verschiedenen Faktoren ( Wie die Cabine Klasse ...) zu erforschen und zu erklären. 
