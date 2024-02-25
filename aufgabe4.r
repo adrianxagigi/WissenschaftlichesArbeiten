@@ -4,17 +4,35 @@ source("Funktionen_R_Skript_1.R")
 library(ggplot2)
 library(magrittr)
 library(dplyr)
+
 # 1. Ueberlebensrate nach Klasse
 
 # Deskriptive Statistiken für Überlebensrate nach Klasse
-survival_stats <- calculate_descriptive_categorical(neue_titanic, "Pclass")
+survival_stats <- calculate_bivariate_categorical(neue_titanic,"Survived" ,"Pclass")  
+survival_stats
+
+survival_numbers <- survival_stats$Kreuztabelle[2, ]
+Non_survival_numbers <- survival_stats$Kreuztabelle[1, ]
+
+class_names <- rownames(survival_numbers)
+class_names2 <-rownames(Non_survival_numbers)
 
 # Visualisierung der Ueberlebensrate nach Klasse mit Balkendiagramm
-barplot(survival_stats$Relative_Haeufigkeiten, names.arg = survival_stats$Kategorie,
+barplot(survival_numbers, 
+        names.arg = class_names,
         main = "Überlebensrate nach Klasse",
         xlab = "Klasse",
-        ylab = "Relative Häufigkeit",
+        ylab = "Anzahl der Überlebenden",
         col = "skyblue")
+
+# Visualisierung der Ueberlebensrate nach Klasse mit Balkendiagramm
+barplot(Non_survival_numbers, 
+        names.arg = class_names2,
+        main = "Ueberlebensrate nach Klasse",
+        xlab = "Klasse",
+        ylab = "Anzahl der Nichtüberlebenden",
+        col = "green")
+
 
 # Chi-Quadrat-Test für den Zusammenhang zwischen Ueberlebensrate und Klasse
 chi_sq_result <- calculate_bivariate_categorical(neue_titanic, "Survived", "Pclass")
@@ -74,3 +92,5 @@ plot(neue_titanic$Fare, neue_titanic$Survived,
      xlab = "Ticketpreis", ylab = "Überlebt (1) oder nicht (0)",
      col = ifelse(neue_titanic$Survived == 1, "blue", "red"))
 
+# Ueberlebensrate nach Alter, Klasse und Geschlecht
+plot_age_survival(neue_titanic)
