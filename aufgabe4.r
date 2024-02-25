@@ -117,3 +117,7 @@ barplot(
   legend = TRUE,
   args.legend = list(x = "topright", bty = "n", legend = c("Steuerbord", "Backbord", "Kein Info"))
 )
+
+# 5. Ueberlebungsrate nach Ticketpreis
+
+compare_means_ttest("Fare", "Survived", neue_titanic)
