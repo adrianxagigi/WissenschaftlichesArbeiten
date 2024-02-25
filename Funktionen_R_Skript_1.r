@@ -104,29 +104,44 @@ calculate_bivariate_categorical <- function(data_frame, var1, var2) {
 # Beispielaufruf der Funktion:
 # calculate_bivariate_categorical(neue_titanic, "Variable1", "Variable2")
 
-#iv)
+#iv)deskriptive bivariate Statistiken für den Zusammengang zwischen 
+#einer metrischen und einer dichotomen Variablen 
 
-#iv. T-test fuer die Variablen Survived und Pclass
-
-compare_means_ttest <- function(metric_variable, dich_variable, data) {
-  #Subset the two groups
-  survived <- data[data[[dich_variable]] == 1, metric_variable]
-  deceased <- data[data[[dich_variable]] == 0, metric_variable]
-   
-  #t-test
-  t_test_result <- t.test(survived, deceased)
+compute_descriptive_stats <- function(metric_var, dichotomous_var) {
+  if (!is.numeric(metric_var)) {
+    stop("Die metrische Variable muss numerisch sein.")
+  }
+  if (!is.factor(dichotomous_var)) {
+    stop("Die dichotome Variable muss ein Faktor sein.")
+  }
   
-  #Print results
-  cat("T-Test Results:\n")
-  cat("-------------\n")
-  cat("Survived Mean:", mean(survived), "\n")
-  cat("Dead Mean:", mean(deceased), "\n")
-  cat("\n")
-  print(t_test_result)
+  # Korrelation berechnen
+  correlation <- cor.test(metric_var, as.numeric(dichotomous_var))
+  
+  # T-Test durchführen
+  t_test <- t.test(metric_var ~ dichotomous_var)
+  
+  # Deskriptive Statistiken
+  mean_group1 <- mean(metric_var[dichotomous_var == levels(dichotomous_var)[1]])
+  mean_group2 <- mean(metric_var[dichotomous_var == levels(dichotomous_var)[2]])
+  sd_group1 <- sd(metric_var[dichotomous_var == levels(dichotomous_var)[1]])
+  sd_group2 <- sd(metric_var[dichotomous_var == levels(dichotomous_var)[2]])
+  
+  # Ergebnisse ausgeben
+  cat("Korrelation zwischen den Variablen:\n")
+  print(correlation)
+  cat("\n\n")
+  cat("T-Test zwischen den Gruppen:\n")
+  print(t_test)
+  cat("\n\n")
+  cat("Deskriptive Statistiken für Gruppe 1:\n")
+  cat("Mittelwert:", mean_group1, "\n")
+  cat("Standardabweichung:", sd_group1, "\n\n")
+  cat("Deskriptive Statistiken für Gruppe 2:\n")
+  cat("Mittelwert:", mean_group2, "\n")
+  cat("Standardabweichung:", sd_group2, "\n")
 }
 
-#Example:
-compare_means_ttest("Pclass", "Survived", neue_titanic)
 
 #v)
 
