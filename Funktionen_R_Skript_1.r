@@ -114,7 +114,7 @@ compare_means_ttest <- function(metric_variable, dich_variable, data) {
   group2 <- data[data[[dich_variable]] == 1, metric_variable]
   
   #t-test
-  t_test_result <- t.test(survived, deceased)
+  t_test_result <- t.test(group1, group2)
   
   #Print results
   cat("T-Test Results:\n")
