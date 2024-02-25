@@ -122,7 +122,7 @@ barplot(
   args.legend = list(x = "topright", bty = "n", legend = c("Steuerbord", "Backbord", "Kein Info"))
 )
 
-#8)
+#8) # Korrelationsmatrix für numerische Variablen
 korrelation <- cor(neue_titanic[, sapply(neue_titanic, is.numeric)], use = "complete.obs")
 
 # Visualisierung der Korrelationsmatrix
