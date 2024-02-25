@@ -94,3 +94,26 @@ plot(neue_titanic$Fare, neue_titanic$Survived,
 
 # Ueberlebensrate nach Alter, Klasse und Geschlecht
 plot_age_survival(neue_titanic)
+
+# 4. Ueberlebensrate nach Position auf dem Schiff (Steuerbord oder Backbord)
+
+# Deskriptive Statistiken für Überlebensrate nach Steuerbord und Backbord
+survival_stats_position <- calculate_bivariate_categorical(neue_titanic, "Survived", "Bord")
+print(survival_stats_position)
+
+# Datenvorbereitung
+nicht_ueberlebt = survival_stats_position$Kreuztabelle[1, ]
+ueberlebt = survival_stats_position$Kreuztabelle[2, ]
+
+# Balkendiagramm erstellen
+barplot(
+  cbind(nicht_ueberlebt, ueberlebt),
+  beside = TRUE,
+  main = "Überlebensrate nach Steuerbord und Backbord",
+  xlab = "Überlebensstatus",
+  ylab = "Anzahl",
+  names.arg = c("Steuerbord", "Backbord"),
+  col = c("skyblue", "green", "grey"),
+  legend = TRUE,
+  args.legend = list(x = "topright", bty = "n", legend = c("Steuerbord", "Backbord", "Kein Info"))
+)
