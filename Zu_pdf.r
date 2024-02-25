@@ -10,7 +10,7 @@ library(dplyr)
 library(corrplot)
 
 # Öffne eine PDF-Datei zum Speichern der Grafiken
-pdf("alle_grafiken.pdf")
+pdf("Grafiken_und_Ergebnisse.pdf")
 
 # Lade Daten und Funktionen
 load("neue_titanic.RData")
