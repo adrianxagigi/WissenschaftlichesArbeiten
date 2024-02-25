@@ -53,7 +53,10 @@ ggplot(neue_titanic, aes(x = as.factor(Pclass), y = Fare)) +
 
 
 # T-test fuer die Ticketpreise in verschiedenen Klassen
-compare_means_ttest("Fare", "Pclass", neue_titanic)
+
+Survived_Factor = as.factor(neue_titanic$Survived)
+
+compute_descriptive_stats(neue_titanic$Fare,Survived_Factor)
 
 
 # 3. Ueberlebensrate nach Geschlecht und Alter
