@@ -1,5 +1,11 @@
 #load("neue_titanic.RData")
 
+install.packages("magrittr")
+install.packages("tidyverse")
+
+library(tidyverse)
+library(ggplot2)
+
 source("Funktionen-R-Skript 1.R")
 
 # 1. Ueberlebensrate nach Klasse
