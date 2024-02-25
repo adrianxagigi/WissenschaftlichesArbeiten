@@ -86,7 +86,7 @@ calculate_bivariate_categorical <- function(data_frame, var1, var2) {
   }
   
   # Kreuztabelle erstellen
-  cross_tab <- table(data_frame[[var1]], data_frame[[var2]])
+  cross_tab <- table(data_frame[[var1]], data_frame[[var2]], useNA = "always")
   
   # Chi-Quadrat-Test durchführen
   chi_sq_test <- chisq.test(cross_tab)
