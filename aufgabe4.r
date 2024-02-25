@@ -112,7 +112,7 @@ barplot(
   main = "Überlebensrate nach Steuerbord und Backbord",
   xlab = "Überlebensstatus",
   ylab = "Anzahl",
-  names.arg = c("Steuerbord", "Backbord"),
+  names.arg = c("Überlebt", "Nicht überlebt"),
   col = c("skyblue", "green", "grey"),
   legend = TRUE,
   args.legend = list(x = "topright", bty = "n", legend = c("Steuerbord", "Backbord", "Kein Info"))
