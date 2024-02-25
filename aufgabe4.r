@@ -1,9 +1,10 @@
 #load("neue_titanic.RData")
-
+install.packages("corrplot")
 source("Funktionen_R_Skript_1.R")
 library(ggplot2)
 library(magrittr)
 library(dplyr)
+library(corrplot)
 
 # 1) Ueberlebensrate nach Klasse
 
@@ -120,3 +121,9 @@ barplot(
   legend = TRUE,
   args.legend = list(x = "topright", bty = "n", legend = c("Steuerbord", "Backbord", "Kein Info"))
 )
+
+#8)
+korrelation <- cor(neue_titanic[, sapply(neue_titanic, is.numeric)], use = "complete.obs")
+
+# Visualisierung der Korrelationsmatrix
+corrplot(korrelation, method = "circle")

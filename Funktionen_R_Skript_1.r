@@ -101,8 +101,6 @@ calculate_bivariate_categorical <- function(data_frame, var1, var2) {
   return(result_summary)
 }
 
-# Beispielaufruf der Funktion:
-# calculate_bivariate_categorical(neue_titanic, "Variable1", "Variable2")
 
 #iv)deskriptive bivariate Statistiken für den Zusammengang zwischen 
 #einer metrischen und einer dichotomen Variablen 
