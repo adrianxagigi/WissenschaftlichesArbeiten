@@ -5,7 +5,7 @@ library(ggplot2)
 library(magrittr)
 library(dplyr)
 
-# 1. Ueberlebensrate nach Klasse
+# 1) Ueberlebensrate nach Klasse
 
 # Deskriptive Statistiken für Überlebensrate nach Klasse
 survival_stats <- calculate_bivariate_categorical(neue_titanic,"Survived" ,"Pclass")  
@@ -39,7 +39,7 @@ chi_sq_result <- calculate_bivariate_categorical(neue_titanic, "Survived", "Pcla
 print(chi_sq_result$Chi_Quadrat_Test)
 
 
-# 2. Ticketspreise nach Klasse
+# 2) Ticketspreise nach Klasse
 
 # Deskriptive Statistiken fuer Ticketpreise nach Klasse
 
@@ -52,14 +52,14 @@ ggplot(neue_titanic, aes(x = as.factor(Pclass), y = Fare)) +
   labs(title = "Ticketpreise nach Klasse", x = "Klasse", y = "Ticketpreis") 
 
 
-# T-test fuer die Ticketpreise in verschiedenen Klassen
+#3) T-test fuer die Überlebenden nach Ticket Price
 
 Survived_Factor = as.factor(neue_titanic$Survived)
 
 compute_descriptive_stats(neue_titanic$Fare,Survived_Factor)
 
 
-# 3. Ueberlebensrate nach Geschlecht und Alter
+# 4) Ueberlebensrate nach Geschlecht und Alter
 
 # Ueberlebensrate nach Geschlecht
 survival_by_sex <- calculate_descriptive_categorical(neue_titanic, "Sex")
@@ -85,7 +85,7 @@ ggplot(data_for_plot, aes(x = Age, y = Percentage, fill = as.factor(Survived))) 
   theme_minimal()
 
 
-# Visualisierung des Überlebensrate in Abhängigkeit vom Alter und Ticket
+#5) Visualisierung des Überlebensrate in Abhängigkeit vom Alter und Ticket
 plot(neue_titanic$Age, neue_titanic$Survived, main = 
        "Überlebensrate in Abhängigkeit vom Alter", xlab = "Alter", 
      ylab = "Überlebt (1) oder nicht (0)", 
@@ -95,10 +95,10 @@ plot(neue_titanic$Fare, neue_titanic$Survived,
      xlab = "Ticketpreis", ylab = "Überlebt (1) oder nicht (0)",
      col = ifelse(neue_titanic$Survived == 1, "blue", "red"))
 
-# Ueberlebensrate nach Alter, Klasse und Geschlecht
+# 6) Ueberlebensrate nach Alter, Klasse und Geschlecht
 plot_age_survival(neue_titanic)
 
-# 4. Ueberlebensrate nach Position auf dem Schiff (Steuerbord oder Backbord)
+# 7) Ueberlebensrate nach Position auf dem Schiff (Steuerbord oder Backbord)
 
 # Deskriptive Statistiken für Überlebensrate nach Steuerbord und Backbord
 survival_stats_position <- calculate_bivariate_categorical(neue_titanic, "Survived", "Bord")

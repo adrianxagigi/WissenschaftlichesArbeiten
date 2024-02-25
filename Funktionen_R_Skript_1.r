@@ -142,7 +142,6 @@ compute_descriptive_stats <- function(metric_var, dichotomous_var) {
   cat("Standardabweichung:", sd_group2, "\n")
 }
 
-
 #v)
 
 # Define the function
