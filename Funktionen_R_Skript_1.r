@@ -134,7 +134,7 @@ compare_means_ttest("Pclass", "Survived", neue_titanic)
 #Eine Grafik, die der Alter, Geschlecht, Passagierklasse und Überlebensrate beschreibt.
 plot_age_survival <- function(data) {
   data %>%
-    ggplot(aes(x = Age, fill = Survived)) +
+    ggplot(aes(x = Age, fill = factor(Survived))) +
     geom_histogram(binwidth = 15) +
     facet_wrap(~Sex + Pclass) +
     theme_test() +
