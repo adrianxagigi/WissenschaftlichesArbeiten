@@ -4,13 +4,22 @@ install.packages("tidyverse")
 
 library(tidyverse)
 library(ggplot2)
+source("Funktionen_R_Skript_2.r")
 
 #i)
 
 # Funktion zur Berechnung der 5-Werte Zusammenfassung metrischer Variablen
+
 deskriptive_statistiken <- function(df) {
+
   numerische_variablen <- sapply(df, is.numeric)
   df_numerisch <- df[, numerische_variablen]
+
+  # Pruefen ob die variablen numerisch sind
+
+  for (var in colnames(df_numerisch)) {
+    check_numeric(df_numerisch, var)
+  }
   
   statistiken <- data.frame(
     'Minimum' = apply(df_numerisch, 2, min, na.rm = TRUE),
