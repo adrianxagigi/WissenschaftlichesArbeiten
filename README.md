@@ -1,4 +1,8 @@
 # Wissenschaftliches Arbeiten Teilleistung Gruppenarbeit
+
+Gruppe: GitHub 11
+
+
 # Das Titanic-Projekt
 
 Das Ziel dieses Projekts ist es, einen Datensatz über die Passagiere der Titanic zu analysieren, um Beziehungen zwischen verschiedenen Faktoren ( Wie die Cabine Klasse ...) zu erforschen und zu erklären. 
@@ -23,7 +27,7 @@ Beiträge zu diesem Projekt sind willkommen! Wenn Sie dazu beitragen möchten, r
 
 Für Fragen oder Kommentare können Sie die Beitragenden des Projekts kontaktieren:
 
-- Adrian Orego (adrian.orego@tu-dortmund.de)
-- Roxane Akossi (roxane.akossi@tu-dortmund.de)
-- Emona Bakalova (emona.bakalova@tu-dortmund.de)
-- Alican Ohkay (alican.ohkay@tu-dortmund.de)
+- Adrian Orego (adrian.orego@tu-dortmund.de)     or adrianxagigi
+- Roxane Akossi (roxane.akossi@tu-dortmund.de)   or Aigul99
+- Emona Bakalova (emona.bakalova@tu-dortmund.de) or 
+- Alican Ohkay (alican.ohkay@tu-dortmund.de)     or 
