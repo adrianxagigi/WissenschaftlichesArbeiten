@@ -29,5 +29,5 @@ Für Fragen oder Kommentare können Sie die Beitragenden des Projekts kontaktier
 
 - Adrian Orego (adrian.orego@tu-dortmund.de)     or adrianxagigi
 - Roxane Akossi (roxane.akossi@tu-dortmund.de)   or Aigul99
-- Emona Bakalova (emona.bakalova@tu-dortmund.de) or 
-- Alican Ohkay (alican.ohkay@tu-dortmund.de)     or 
+- Emona Bakalova (emona.bakalova@tu-dortmund.de) or EmonaBakalova
+- Alican Ohkay (alican.ohkay@tu-dortmund.de)     or aohkay
